@@ -6,25 +6,25 @@ for(j=0;j<A.length;++j){a=Array(5e3).fill(0);z=[];y=i=0;p=0;for(c=A[j];i<c.lengt
 
 // beautified
 for (programsIndex = 0; programsIndex < A.length; ++programsIndex) {
-	a = Array(5e3).fill(0);
-	z = [];
-	falsedLoops = i = 0;
+	array = Array(5e3).fill(0);
+	loops = [];
+	falsedLoops = index = 0;
 	pointer = 0;
-	for (c = A[programsIndex]; i < c.length; ++i) {
-		if (c[i] == "]") {
+	for (program = A[programsIndex]; index < program.length; ++index) {
+		if (program[index] == "]") {
 			if (falsedLoops > 0) {
 				--falsedLoops;
-			} else if (z.length) {
-				if (a[pointer]) {
-					i = z[z.length - 1];
+			} else if (loops.length) {
+				if (array[pointer]) {
+					index = loops[loops.length - 1];
 				} else {
-					z.pop();
+					loops.pop();
 				}
 			}
 		}
-		if (c[i] == "[") {
-			if (a[pointer] && falsedLoops < 1) {
-				z.push(i + 1);
+		if (program[index] == "[") {
+			if (array[pointer] && falsedLoops < 1) {
+				loops.push(index + 1);
 			} else {
 				++falsedLoops;
 			}
@@ -32,11 +32,11 @@ for (programsIndex = 0; programsIndex < A.length; ++programsIndex) {
 		if (falsedLoops) {
 			continue;
 		}
-		if (c[i] == ">") ++pointer;
-		if (c[i] == "<") --pointer;
-		if (c[i] == "+") ++a[pointer];
-		if (c[i] == "-") --a[pointer];
-		if (c[i] == ".") printf(String.fromCharCode(a[pointer]));
+		if (program[index] == ">") ++pointer;
+		if (program[index] == "<") --pointer;
+		if (program[index] == "+") ++array[pointer];
+		if (program[index] == "-") --array[pointer];
+		if (program[index] == ".") printf(String.fromCharCode(array[pointer]));
 	}
 }
 printf("\n");
