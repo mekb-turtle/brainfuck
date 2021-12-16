@@ -2,14 +2,14 @@
 const args=process.argv.splice(2);printf=e=>{process.stdout.write(e?`${e}`:"");};
 
 // golfed version
-for(j=0;j<args.length;++j){a=Array(5e3).fill(0);z=[];y=i=0;p=0;for(c=args[j];i<c.length;++i){if(c[i]=="]"){if(y>0)--y;else if(z.length){if(a[p])i=z[z.length-1];else z.pop();}}if(c[i]=="[")if(a[p]&&y<1)z.push(i+1);else ++y;if(y)continue;if(c[i]==">")++p;if(c[i]=="<")--p;if(c[i]=="+")++a[p];if(c[i]=="-")--a[p];if(c[i]==".")printf(String.fromCharCode(a[p]));}}printf("\n");
+for(j=0;j<args.length;++j){a=Array(5e3).fill(0);z=[];y=i=0;p=Math.floor(array.length/2);for(c=args[j];i<c.length;++i){if(c[i]=="]"){if(y>0)--y;else if(z.length){if(a[p])i=z[z.length-1];else z.pop();}}if(c[i]=="[")if(a[p]&&y<1)z.push(i+1);else ++y;if(y)continue;if(c[i]==">")++p;if(c[i]=="<")--p;if(c[i]=="+")++a[p];if(c[i]=="-")--a[p];if(c[i]==".")printf(String.fromCharCode(a[p]));}}printf("\n");
 
 // beautified
 for (programsIndex = 0; programsIndex < args.length; ++programsIndex) {
 	array = Array(5e3).fill(0);
 	loops = [];
 	falsedLoops = index = 0;
-	pointer = 0;
+	pointer = Math.floor(array.length/2);
 	for (program = args[programsIndex]; index < program.length; ++index) {
 		if (program[index] == "]") {
 			if (falsedLoops > 0) {
