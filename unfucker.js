@@ -30,7 +30,7 @@ for (textsIndex = 0; textsIndex < args.length; ++textsIndex) {
 		}
 		if (!max) {
 			max = 0;
-			while (array[pointer] > charCode ) {
+			while (array[pointer] > charCode) {
 				code += "-";
 				--array[pointer];
 				max = 1;
